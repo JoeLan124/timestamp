@@ -13,11 +13,16 @@ export default function Home() {
     router.push("/home");
   }
 
-  <div>
-    {session ? (
-      <p>You are logged in!</p>
-    ) : (
-      <p>You are not logged in 😞</p>
-    )}
-  </div>;
+  return (
+    <div>
+      {session ? (
+        <p className="text-green-500">You are logged in!</p>
+      ) : (
+        <p>
+          You are not logged in 😞
+          <a href="/api/auth/signin">Please sign in</a>
+        </p>
+      )}
+    </div>
+  );
 }
