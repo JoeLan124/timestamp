@@ -17,10 +17,32 @@ model User {
   username      String?   @unique
   emailVerified DateTime?
   image         String?
-  createdAt     DateTime  @default(now())
+  createdAt     DateTime @default(now())
   updatedAt     DateTime  @updatedAt
   accounts      Account[]
   sessions      Session[]
+  days          day[]
+
+}
+
+model day {
+    id            String  @id @default(cuid())
+    singleday     DateTime
+    typeOfDay     String?
+    targetWorkingTimeInSeconds  Int?
+    timestamp     timestamp[]
+    workingTimeInSeconds   Int?
+    breakTimeInSeconds     Int?
+    user          User @relation(fields: [dayId], references: [id], onDelete: Cascade)
+    dayId         String
+}
+
+model timestamp {
+  id            String  @id @default(cuid())
+  stamp         DateTime?
+  office        Boolean?
+  user          day @relation(fields: [timestampId], references: [id], onDelete: Cascade)
+  timestampId   String
 }
 
 model VerificationToken {
