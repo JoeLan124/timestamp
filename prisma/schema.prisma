@@ -30,7 +30,7 @@ model day {
     singleday     DateTime
     typeOfDay     String?
     targetWorkingTimeInSeconds  Int?
-    timestamp     timestamp[]
+    timestamps     timestamp[]
     workingTimeInSeconds   Int?
     breakTimeInSeconds     Int?
     user          User @relation(fields: [dayId], references: [id], onDelete: Cascade)
