@@ -2,6 +2,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+// "name": "timestamp",
+// "version": "0.1.0",
+// "private": true,
+
 First, run the development server:
 
 ```bash

@@ -27,7 +27,7 @@ model User {
 
 model day {
     id            String  @id @default(cuid())
-    singleday     DateTime
+    singleday     DateTime @db.Date
     typeOfDay     String?
     targetWorkingTimeInSeconds  Int?
     timestamps     timestamp[]
@@ -39,8 +39,8 @@ model day {
 
 model timestamp {
   id            String  @id @default(cuid())
-  stamp         DateTime?
-  office        Boolean?
+  stamp         DateTime? @db.Time
+  office        Boolean? @default(false)
   user          day @relation(fields: [timestampId], references: [id], onDelete: Cascade)
   timestampId   String
 }
