@@ -18,27 +18,41 @@ function scrollx() {
       </p>
       <div
         id="slider"
-        className=" w-full h-full space-x-6 overflow-x-auto scroll scroll-smooth whitespace-nowrap snap-x snap-mandatory">
-        <div className="snap-center w-screen h-48 bg-green-400 inline-block hover:scale-105 ease-in-out duration-300">
-          4
+        className=" w-full space-x-6 overflow-x-auto scroll scroll-smooth whitespace-nowrap snap-x snap-mandatory text-lg text-center">
+        <div className="snap-center w-screen h-48 bg-green-400 inline-block">
+          <span className="flex justify-center items-center h-full text-4xl">
+            6
+          </span>
         </div>
         <div className="snap-center w-screen h-48 bg-green-500 inline-block">
-          5
+          <span className="flex justify-center items-center h-full">
+            4
+          </span>
         </div>
         <div className="snap-center w-screen h-48 bg-green-100 inline-block">
-          1
+          <span className="flex justify-center items-center h-full">
+            1
+          </span>
         </div>
         <div className="snap-center w-screen h-48 bg-green-200 inline-block">
-          2
+          <span className="flex justify-center items-center h-full">
+            2
+          </span>
         </div>
         <div className="snap-center w-screen h-48 bg-green-300 inline-block">
-          3
+          <span className="flex justify-center items-center h-full">
+            3
+          </span>
         </div>
         <div className="snap-center w-screen h-48 bg-green-400 inline-block">
-          4
+          <span className="flex justify-center items-center h-full">
+            4
+          </span>
         </div>
         <div className="snap-center w-screen h-48 bg-green-500 inline-block">
-          5
+          <span className="flex justify-center items-center h-full">
+            5
+          </span>
         </div>
       </div>
       <p className="pl-4" onClick={slideRight}>
