@@ -37,6 +37,12 @@ model day {
     dayId         String
 }
 
+model days {
+      id            String  @id @default(cuid())
+      info          String?
+}
+
+
 model timestamp {
   id            String  @id @default(cuid())
   stamp         DateTime? @db.Time
