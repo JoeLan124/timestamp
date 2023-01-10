@@ -8,7 +8,7 @@ function form2() {
         onClick={async () => {
           await fetch("/api/savedate", {
             body: JSON.stringify({
-              info: "Hallo",
+              info: native,
             }),
             headers: {
               "Content-Type": "application/json",

@@ -1,11 +1,11 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import prisma from "lib/prisma";
-import { getDays } from "lib/data";
+import { getDays, getDaysinDays } from "lib/data";
 import { format, formatISO } from "date-fns";
 import { useState } from "react";
 
-export default function Home({ days }) {
+export default function Home({ days, daysinDays }) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [darkMode, setDarkMode] = useState(false);
@@ -32,7 +32,7 @@ export default function Home({ days }) {
           className="bg-transparent border-1 rounded-full">
           Press Me
         </button>
-        {days.map((day, index) => (
+        {/* {days.map((day, index) => (
           <div key={index}>
             <p
               className="dark:text-blue-500 bg-slate-300"
@@ -55,6 +55,12 @@ export default function Home({ days }) {
               </p>
             ))}
           </div>
+        ))} */}
+
+        {daysinDays.map((day, index) => (
+          <div>
+            {format(new Date(day.singleday), "dd.MM.yyyy")}
+          </div>
         ))}
       </div>
     </div>
@@ -62,14 +68,18 @@ export default function Home({ days }) {
 }
 
 export async function getServerSideProps(context) {
-  const datefrom = "2022-11-29";
-  const dateto = "2022-12-01";
-  let days = await getDays(datefrom, dateto, prisma);
-  days = JSON.parse(JSON.stringify(days));
+  // const datefrom = "2022-11-29";
+  // const dateto = "2022-12-01";
+  // let days = await getDays(datefrom, dateto, prisma);
+  // days = JSON.parse(JSON.stringify(days));
+
+  let daysinDays = await getDaysinDays(prisma);
+  daysinDays = JSON.parse(JSON.stringify(daysinDays));
 
   return {
     props: {
-      days,
+      // days,
+      daysinDays,
     },
   };
 }

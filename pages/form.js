@@ -4,7 +4,9 @@ import { useState } from "react";
 let today = new Date();
 
 function form() {
-  const [native, setNative] = useState("");
+  const [native, setNative] = useState(
+    new Date().toString()
+  );
   let newdate = new Date();
 
   const getCurrentDateInput = () => {
@@ -32,7 +34,7 @@ function form() {
         e.preventDefault();
         await fetch("/api/savedate", {
           body: JSON.stringify({
-            info: native.toString(),
+            info: native,
           }),
           headers: {
             "Content-Type": "application/json",
