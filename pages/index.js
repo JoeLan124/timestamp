@@ -9,6 +9,7 @@ export default function Home({ days, daysinDays }) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [darkMode, setDarkMode] = useState(false);
+  const [value, onChange] = useState("12:00");
 
   if (status === "loading") {
     return null;
@@ -32,6 +33,18 @@ export default function Home({ days, daysinDays }) {
           className="bg-transparent border-1 rounded-full">
           Press Me
         </button>
+        <div>
+          <form action="/action_page.php">
+            <fieldset>
+              <legend>Personalia:</legend>
+              <label for="fname">First name:</label>
+              <input
+                type="text"
+                id="fname"
+                name="fname"></input>
+            </fieldset>
+          </form>
+        </div>
         {/* {days.map((day, index) => (
           <div key={index}>
             <p

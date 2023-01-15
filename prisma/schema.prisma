@@ -41,6 +41,7 @@ model days {
       id            String  @id @default(cuid())
       info          String?
       singleday     DateTime? @db.Date
+      nextday       DateTime? @db.Timestamp(3)
 }
 
 
