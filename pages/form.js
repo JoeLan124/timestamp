@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 let today = new Date();
 
-function form() {
+function TrackingData() {
+  const router = useRouter();
   const [native, setNative] = useState(
     new Date().toString()
   );
@@ -34,7 +36,7 @@ function form() {
 
   return (
     <form
-      className="bg-blue-300 text-black w-1/4 m-2 pt-1"
+      className="border border-solid border-gray-500 bg-blue-300 shadow-lg rounded-xl text-black max-w-xs m-2"
       onSubmit={async (e) => {
         e.preventDefault();
         await fetch("/api/savedate", {
@@ -46,55 +48,58 @@ function form() {
           },
           method: "POST",
         });
+        router.push("/");
+        return;
       }}>
-      <fieldset className="border border-solid border-gray-500 border-shadow-lg rounded-md  px-2 pt-0 mt-2 mx-4  ">
-        <legend className="">
-          <p>&nbsp; Erfassung der Zeiten: &nbsp;</p>
-        </legend>
+      <div className="p-4">
+        <fieldset className="border border-solid border-gray-500 border-shadow-lg rounded-md p-2 w-full ">
+          <legend>
+            <p>&nbsp; Erfassung der Zeiten: &nbsp;</p>
+          </legend>
 
-        <div className="flex">
-          <div className="flex-1 px-1 pt-2 mt-2 mr-1 ml-1">
-            <div className="flex-1 mb-5">
-              <fieldset className="border border-solid border-gray-500 border-shadow-lg rounded-md p-3 mx-4  ">
-                <legend>
-                  <p>&nbsp; Datum und Zeit: &nbsp; </p>
-                </legend>
-                <div className="DateAndTime">
-                  <input
-                    type="datetime-local"
-                    step="1"
-                    onChange={onNativeChange}
-                    defaultValue={getCurrentDateInput()}
-                    className="mb-2 bg-blue-300"
-                  />
-                </div>
-              </fieldset>
+          <div className="flex">
+            <div className="flex-1">
+              <div className="flex-1">
+                <fieldset className="border border-solid border-gray-500 border-shadow-lg rounded-md w-full p-2">
+                  <legend>
+                    <p>&nbsp; Datum und Zeit: &nbsp; </p>
+                  </legend>
+                  <div className="DateAndTime px-2 ">
+                    <input
+                      type="datetime-local"
+                      step="1"
+                      onChange={onNativeChange}
+                      defaultValue={getCurrentDateInput()}
+                      className="mb-2 bg-blue-300"
+                    />
+                  </div>
+                </fieldset>
+              </div>
             </div>
           </div>
-        </div>
-      </fieldset>
-      {/* <p>
-        {new Date(native || today).toLocaleDateString(
-          "de-DE",
-          {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-          }
-        )}
-      </p> */}
+        </fieldset>
+      </div>
 
       {() => <p>{getCurrentTimeInput()}</p>}
-      <div className="flex">
-        <div className="flex-1 mb-5">
-          <button>Save the Date</button>
+      <div className="">
+        <div className="flex justify-center items-center mb-2">
+          <button className="bg-blue-400 rounded-lg border border-solid border-gray-500 shadow-lg p-2 cursor-pointer">
+            Save the Date
+          </button>
         </div>
       </div>
+      {/* <p className="flex justify-center">
+        {new Date(native).toLocaleDateString("de-DE", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })}
+      </p> */}
     </form>
   );
 }
 
-export default form;
+export default TrackingData;

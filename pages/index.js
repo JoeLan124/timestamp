@@ -4,6 +4,7 @@ import prisma from "lib/prisma";
 import { getDays, getDaysinDays } from "lib/data";
 import { format, formatISO } from "date-fns";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home({ days, daysinDays }) {
   const { data: session, status } = useSession();
@@ -31,19 +32,12 @@ export default function Home({ days, daysinDays }) {
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="bg-transparent border-1 rounded-full">
-          Press Me
+          Press me for dark mode
         </button>
         <div>
-          <form action="/action_page.php">
-            <fieldset>
-              <legend>Personalia:</legend>
-              <label for="fname">First name:</label>
-              <input
-                type="text"
-                id="fname"
-                name="fname"></input>
-            </fieldset>
-          </form>
+          <Link href="/form">
+            <p>Eingabeformular</p>
+          </Link>
         </div>
         {/* {days.map((day, index) => (
           <div key={index}>
