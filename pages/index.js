@@ -2,15 +2,31 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import prisma from "lib/prisma";
 import { getDays, getDaysinDays } from "lib/data";
-import { format, formatISO } from "date-fns";
+import { format, formatISO, parseISO } from "date-fns";
 import { useState } from "react";
 import Link from "next/link";
+import { de } from "date-fns/locale";
+//import { format } from "date-fns/esm";
+//import { de } from "date-fns/esm/locale";
 
 export default function Home({ days, daysinDays }) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [darkMode, setDarkMode] = useState(false);
   const [value, onChange] = useState("12:00");
+
+  function formatDate(date, utcOffsetHrs) {
+    const baseTzOffset = utcOffsetHrs * 60;
+    const tzOffset = date.getTimezoneOffset();
+    const d = date + (baseTzOffset + tzOffset) * 60 * 1000;
+    return d;
+  }
+
+  function convertUTCDateToLocalDate(date) {
+    var newDate = new Date(
+      date.getTime() + date.getTimezoneOffset() * 60 * 1000
+    );
+  }
 
   if (status === "loading") {
     return null;
@@ -66,7 +82,11 @@ export default function Home({ days, daysinDays }) {
 
         {daysinDays.map((day, index) => (
           <div>
-            {format(new Date(day.singleday), "dd.MM.yyyy")}
+            {format(
+              new Date(day.info),
+              "dd.MM.yyyy HH:mm:ss",
+              { locale: de }
+            )}
           </div>
         ))}
       </div>

@@ -22,9 +22,8 @@ export default async function handler(req, res) {
     data: {
       info: req.body.info,
       singleday: new Date(req.body.info),
-      //nextday: new Date(req.body.info),
       nextday: convertUTCDateToLocalDate(
-        new Date("2023-01-11T18:02:00.000Z")
+        new Date(req.body.info)
       ),
     },
   });
