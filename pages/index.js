@@ -6,8 +6,6 @@ import { format, formatISO, parseISO } from "date-fns";
 import { useState } from "react";
 import Link from "next/link";
 import { de } from "date-fns/locale";
-//import { format } from "date-fns/esm";
-//import { de } from "date-fns/esm/locale";
 
 export default function Home({ days, daysinDays }) {
   const { data: session, status } = useSession();
@@ -82,11 +80,26 @@ export default function Home({ days, daysinDays }) {
 
         {daysinDays.map((day, index) => (
           <div>
-            {format(
-              new Date(day.info),
-              "dd.MM.yyyy HH:mm:ss",
-              { locale: de }
-            )}
+            <button
+              className="bg-blue-300 p-3 my-2 rounded-full"
+              onClick={async () => {
+                await fetch("/api/delete", {
+                  body: JSON.stringify({
+                    id: day.id,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  method: "DELETE",
+                });
+                router.reload(window.location.pathname);
+              }}>
+              {format(
+                new Date(day.info),
+                "dd.MM.yyyy HH:mm:ss",
+                { locale: de }
+              )}
+            </button>
           </div>
         ))}
       </div>

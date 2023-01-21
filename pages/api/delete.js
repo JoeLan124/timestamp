@@ -3,10 +3,9 @@
 import prisma from "lib/prisma";
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") return res.end();
-
-  await prisma.user.create({
-    data: { info: deleteId },
-  });
+  if (req.method === "DELETE")
+    await prisma.days.delete({
+      where: { id: req.body.id },
+    });
   res.end();
 }
