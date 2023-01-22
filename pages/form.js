@@ -72,6 +72,13 @@ function TrackingData() {
                       defaultValue={getCurrentDateInput()}
                       className="mb-2 bg-blue-300"
                     />
+
+                    {/* Test with input type time */}
+                    {/* <input
+                      type="time"
+                      step="1"
+                      className="mb-2 bg-blue-300"
+                    /> */}
                   </div>
                 </fieldset>
               </div>
