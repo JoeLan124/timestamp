@@ -1,13 +1,21 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import prisma from "lib/prisma";
-import { getDays, getDaysinDays } from "lib/data";
+import {
+  getDays,
+  getDaysinDays,
+  getDatesInRange,
+} from "lib/data";
 import { format, formatISO, parseISO } from "date-fns";
 import { useState } from "react";
 import Link from "next/link";
 import { de } from "date-fns/locale";
 
-export default function Home({ days, daysinDays }) {
+export default function Home({
+  daysinDays,
+  daysinDays,
+  timebetween,
+}) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [darkMode, setDarkMode] = useState(false);
@@ -108,14 +116,20 @@ export default function Home({ days, daysinDays }) {
 }
 
 export async function getServerSideProps(context) {
-  // const datefrom = "2022-11-29";
-  // const dateto = "2022-12-01";
+  const datefrom = new Date("2022-01-01");
+  const dateto = new Date();
   // let days = await getDays(datefrom, dateto, prisma);
   // days = JSON.parse(JSON.stringify(days));
 
   let daysinDays = await getDaysinDays(prisma);
   daysinDays = JSON.parse(JSON.stringify(daysinDays));
 
+  // let timebetween = await getDatesInRange({
+  //   datefrom,
+  //   dateto,
+  //   prisma,
+  // });
+  // timebetween = JSON.parse(JSON.stringify(timebetween));
   return {
     props: {
       // days,

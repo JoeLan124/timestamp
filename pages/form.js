@@ -72,13 +72,6 @@ function TrackingData() {
                       defaultValue={getCurrentDateInput()}
                       className="mb-2 bg-blue-300"
                     />
-
-                    {/* Test with input type time */}
-                    {/* <input
-                      type="time"
-                      step="1"
-                      className="mb-2 bg-blue-300"
-                    /> */}
                   </div>
                 </fieldset>
               </div>
@@ -95,16 +88,6 @@ function TrackingData() {
           </button>
         </div>
       </div>
-      {/* <p className="flex justify-center">
-        {new Date(native).toLocaleDateString("de-DE", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        })}
-      </p> */}
     </form>
   );
 }
