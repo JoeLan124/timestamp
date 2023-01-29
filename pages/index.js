@@ -11,11 +11,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { de } from "date-fns/locale";
 
-export default function Home({
-  daysinDays,
-  daysinDays,
-  timebetween,
-}) {
+export default function Home({ daysinDays, timebetween }) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [darkMode, setDarkMode] = useState(false);
@@ -49,8 +45,8 @@ export default function Home({
   // 4) each class add dark: and normal settings
 
   return (
-    <div className={darkMode ? "dark" : ""}>
-      <div className="h-screen bg-green-500 dark:bg-blue-700 text-red-700">
+    <div className={darkMode ? "dark" : "invert"}>
+      <div className="h-screen bg-gray-200 dark:bg-blue-700 text-red-700">
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="bg-transparent border-1 rounded-full">
