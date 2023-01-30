@@ -1,15 +1,27 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 function landing() {
   return (
     <div className=" bg-orange-100">
-      <div className="fixed w-full h-24 bg-orange-400 opacity-70 mb-12">
+      {/* <div className="fixed w-full h-24 bg-orange-400 opacity-70 mb-12">
         Navbar
-      </div>
+      </div> */}
       <div className="grid grid-cols-1 md:grid-cols-2 h-full w-full">
         <div className="flex justify-center items-center mt-24 md:mt-0">
-          <div className="relative rounded-full w-[350px] h-[350px] bg-orange-200 shadow-2xl border-4 border-white my-4">
+          <motion.div
+            initial={{ opacity: 0, x: -300, scale: 0.5 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              rotate: [
+                0, 45, 90, 135, 180, 225, 270, 315, 360,
+              ],
+            }}
+            transition={{ duration: 0.5 }}
+            className="relative rounded-full w-[350px] h-[350px] bg-orange-200 shadow-2xl border-4 border-white my-4">
             <Image
               src="/joecolouredshort2_3.png"
               height={200}
@@ -17,10 +29,18 @@ function landing() {
               alt="joe"
               className="absolute top-4 left-[70px] z-30"
             />
-          </div>
+          </motion.div>
         </div>
         <div className="bg-gradient-to-b from-orange-100 to-orange-200  h-screen flex justify-center items-start md:items-center md:text-xl">
-          <div className="bg-orange-100 rounded-2xl p-4 m-4  max-w-md text-orange-400">
+          <motion.div
+            initial={{ opacity: 0, x: 300, y: 300 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              y: 0,
+            }}
+            transition={{ duration: 0.5 }}
+            className="bg-orange-100 rounded-2xl p-4 m-4  max-w-md text-orange-400">
             Lorem ipsum dolor sit, amet consectetur
             adipisicing elit. Corporis provident aperiam
             dolore, modi iste odio, voluptatum vero fugiat
@@ -32,7 +52,7 @@ function landing() {
             suscipit laboriosam illum alias quisquam odit
             earum. Dolorem iure impedit laboriosam
             reprehenderit accusamus eligendi obcaecati!
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
