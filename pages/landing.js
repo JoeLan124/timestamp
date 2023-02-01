@@ -5,17 +5,21 @@ import Link from "next/link";
 
 function landing() {
   return (
-    <div className="relative">
-      <div
-        className="absolute bottom-4 h-auto left-1/2"
-        id="top">
-        <a href="#top">xxx</a>
+    <div className="relative nap-y snap-mandatory">
+      <div className="absolute bottom-4 h-auto left-1/2">
+        <Link href="#top" className="flex justify-center">
+          <button className="rounded-full border-[1px] border-white bg-transparent  shadow-xl py-1 px-1 opacity-70 text-white text-xs">
+            up
+          </button>
+        </Link>
       </div>
       <div className=" bg-orange-200 snap-y snap-mandatory w-screen h-screen overflow-scroll duration-300">
         {/* <div className="fixed w-full h-24 bg-orange-400 opacity-70 mb-12">
         Navbar
       </div> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 snap-start  w-screen h-screen  space-x-3">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 snap-start  w-screen h-screen  space-x-3 snap-start"
+          id="top">
           <div className="flex justify-center items-center mt-4 md:mt-0">
             <motion.div
               initial={{ opacity: 0, x: -300, scale: 0.5 }}
@@ -34,7 +38,7 @@ function landing() {
                 height={200}
                 width={200}
                 alt="joe"
-                className="absolute md:top-4 top-0 left-[70px] z-30"
+                className="absolute md:top-4 top-0 left-[70px] z-30 "
               />
             </motion.div>
           </div>
