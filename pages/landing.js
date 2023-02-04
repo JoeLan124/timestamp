@@ -8,6 +8,23 @@ import Modal from "../components/modal";
 function landing() {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
+  const [active, setActive] = useState(false);
+
+  const Variants = {
+    active: {
+      rotate: 90,
+      duration: 0.5,
+      // initial: { opacity: 0, x: -300, scale: 0.5 },
+      // animate: {
+      //   opacity: 1,
+      //   x: 0,
+      //   scale: 1,
+      //   rotate: [0, 45, 90, 135, 180, 225, 270, 315, 360],
+      // },
+      // transition: { duration: 0.5 },
+    },
+    disabled: {},
+  };
 
   useEffect(() => {
     setOpen(true);
@@ -15,7 +32,8 @@ function landing() {
 
   const handleClose = () => {
     setOpen(false);
-    setOpen2(true);
+    setActive(true);
+    setOpen2(false);
     console.log(open);
   };
 
@@ -50,31 +68,18 @@ function landing() {
         Navbar
       </div> */}
           <div
-            className="grid grid-cols-1 md:grid-cols-2 snap-start  w-screen h-screen  space-x-3 snap-start"
+            className="grid grid-cols-1 md:grid-cols-2  w-screen h-screen  space-x-3 snap-start"
             id="top">
             <div className="flex justify-center items-center mt-4 md:mt-0">
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: -300,
-                  scale: 0.5,
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                  scale: 1,
-                  rotate: [
-                    0, 45, 90, 135, 180, 225, 270, 315, 360,
-                  ],
-                }}
-                transition={{ duration: 0.5 }}
-                className="relative rounded-full w-[350px] h-[350px] bg-orange-200 shadow-2xl border-4 border-white my-4">
+              <motion.div className="relative rounded-full w-[350px] h-[350px] bg-orange-200 shadow-2xl border-4 border-white my-4">
                 <Image
                   src="/joecolouredshort2_3.png"
                   height={200}
                   width={200}
                   alt="joe"
                   className="absolute md:top-4 top-0 left-[70px] z-30 "
+                  variants={Variants}
+                  animate={!open ? "active" : "disabled"}
                 />
               </motion.div>
             </div>
