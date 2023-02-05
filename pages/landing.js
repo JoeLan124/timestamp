@@ -7,54 +7,13 @@ import Modal from "../components/modal";
 
 function landing() {
   const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(false);
-  const [active, setActive] = useState(false);
-
-  const Variants = {
-    active: {
-      rotate: 90,
-      duration: 0.5,
-      // initial: { opacity: 0, x: -300, scale: 0.5 },
-      // animate: {
-      //   opacity: 1,
-      //   x: 0,
-      //   scale: 1,
-      //   rotate: [0, 45, 90, 135, 180, 225, 270, 315, 360],
-      // },
-      // transition: { duration: 0.5 },
-    },
-    disabled: {},
-  };
 
   useEffect(() => {
     setOpen(true);
   }, []);
 
-  const handleClose = () => {
-    setOpen(false);
-    setActive(true);
-    setOpen2(false);
-    console.log(open);
-  };
-
   return (
     <div className="relative snap-y snap-mandatory">
-      {open && (
-        <div className="backdrop-blur-lg bg-blue-300 opacity-50 fixed inset-0 z-50">
-          <div className="flex h-screen justify-center items-center">
-            <div className="flex-col justify-center bg-orange-200 py-12 px-24 border-4 border-white rounded-xl">
-              <div className="flex">
-                <div
-                  className="h-200 w-200 bg-orange-200 p-4 rounded-2xl z-30"
-                  onClick={handleClose}>
-                  accept
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div>
         <div className="absolute bottom-4 h-auto left-1/2">
           <Link href="#top" className="flex justify-center">
@@ -63,7 +22,8 @@ function landing() {
             </button>
           </Link>
         </div>
-        <div className=" bg-orange-200 snap-y snap-mandatory w-screen h-screen overflow-scroll duration-300">
+        {/* <div className="xs:hidden md:absolute md:right-1/2 md:-mx-6 md:bg-gradient-to-r md:from-orange-200 md:to-orange-100 md:h-screen md:w-12"></div> */}
+        <div className=" bg-orange-200 snap-y snap-mandatory w-full h-screen overflow-scroll duration-300">
           {/* <div className="fixed w-full h-24 bg-orange-400 opacity-70 mb-12">
         Navbar
       </div> */}
@@ -71,15 +31,28 @@ function landing() {
             className="grid grid-cols-1 md:grid-cols-2  w-screen h-screen  space-x-3 snap-start"
             id="top">
             <div className="flex justify-center items-center mt-4 md:mt-0">
-              <motion.div className="relative rounded-full w-[350px] h-[350px] bg-orange-200 shadow-2xl border-4 border-white my-4">
+              <motion.div
+                className="relative rounded-full w-[350px] h-[350px] bg-orange-200 shadow-2xl border-4 border-white my-4"
+                initial={{
+                  opacity: 0,
+                  x: -300,
+                  scale: 0.5,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  scale: 1,
+                  rotate: [
+                    0, 45, 90, 135, 180, 225, 270, 315, 360,
+                  ],
+                }}
+                transition={{ duration: 0.5 }}>
                 <Image
                   src="/joecolouredshort2_3.png"
                   height={200}
                   width={200}
                   alt="joe"
                   className="absolute md:top-4 top-0 left-[70px] z-30 "
-                  variants={Variants}
-                  animate={!open ? "active" : "disabled"}
                 />
               </motion.div>
             </div>
