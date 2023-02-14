@@ -2,6 +2,8 @@ import Image from "next/image";
 import background from "../public/backgroundbrown.jpg";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+import Navbar from "components/navbar";
 
 function landing3() {
   const router = useRouter();
@@ -16,62 +18,71 @@ function landing3() {
             sizes="100vw, 100vh"
             className="absolute bg-fixed bg-cover"
           />
-          <nav className="fixed">
-            <div className="navbar">
-              <div className="absolute flex top-0 w-1/2 opacity-80 space-x-4 p-4 h-auto text-white uppercase tracking-wide">
-                <Link href="#top">
-                  <ul
-                    className={`${
-                      router.asPath == "/landing3#top"
-                        ? "text-white"
-                        : "text-white"
-                    }`}>
-                    Home
-                  </ul>
-                </Link>
-                <Link href="#me">
-                  <ul
-                    className={`${
-                      router.asPath === "/landing3#me"
-                        ? "text-white"
-                        : "text-white"
-                    }`}>
-                    Me
-                  </ul>
-                </Link>
-                <Link href="#skill">
-                  <ul
-                    className={`${
-                      router.asPath === "/landing3#skill"
-                        ? "text-white"
-                        : "text-white"
-                    }`}>
-                    Skill
-                  </ul>
-                </Link>
-                <Link href="#projects">
-                  <ul
-                    className={`${
-                      router.asPath === "/landing3#projects"
-                        ? "text-white"
-                        : "text-white"
-                    }`}>
-                    Projects
-                  </ul>
-                </Link>
-                <Link href="#contact">
-                  <ul
-                    className={`${
-                      router.asPath === "/landing3#contact"
-                        ? "text-white"
-                        : "text-white"
-                    }`}>
-                    Contact
-                  </ul>
-                </Link>
+
+          <Navbar />
+
+          <div className="MeAnmimationAndTextBlock">
+            <div
+              className="grid grid-cols-1 md:grid-cols-2  w-screen h-screen  space-x-3 snap-start"
+              id="top">
+              <div className="flex justify-center items-center mt-4 md:mt-0">
+                <motion.div
+                  className="relative rounded-full w-[350px] h-[350px] bg-slate-100/20 shadow-2xl border-4 border-white my-4"
+                  initial={{
+                    opacity: 0,
+                    x: -300,
+                    scale: 0.5,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    rotate: [
+                      0, 45, 90, 135, 180, 225, 270, 315,
+                      360,
+                    ],
+                  }}
+                  transition={{ duration: 0.5 }}>
+                  <Image
+                    src="/joecolouredshort2_3.png"
+                    height={200}
+                    width={200}
+                    alt="joe"
+                    className="fixed md:top-4 top-0 left-[70px]"
+                  />
+                </motion.div>
+                ç
+              </div>
+              <div className=" h-auto flex justify-center items-start md:items-center md:text-md  ">
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    x: 300,
+                    y: 300,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-slate-100/20 border-4 border-white rounded-2xl p-4 md:pl-8 m-4  max-w-md text-white shadow-2xl z-50">
+                  Lorem ipsum dolor sit, amet consectetur
+                  adipisicing elit. Corporis provident
+                  aperiam dolore, modi iste odio, voluptatum
+                  vero fugiat dicta eos laborum, beatae
+                  libero assumenda tempore. Ullam saepe quo
+                  doloremque exercitationem. Vel quaerat
+                  quis corporis, facere mollitia provident,
+                  aliquam dolore molestias repellendus ut
+                  officiis harum minus suscipit laboriosam
+                  illum alias quisquam odit earum. Dolorem
+                  iure impedit laboriosam reprehenderit
+                  accusamus eligendi obcaecati!
+                </motion.div>
               </div>
             </div>
-          </nav>
+          </div>
 
           <div className="navigate-back-to-home">
             <Link
