@@ -51,7 +51,6 @@ function landing3() {
                     className="fixed md:top-4 top-0 left-[70px]"
                   />
                 </motion.div>
-                ç
               </div>
               <div className=" h-auto flex justify-center items-start md:items-center md:text-md  ">
                 <motion.div
@@ -88,10 +87,29 @@ function landing3() {
             <Link
               href="#top"
               className="fixed bottom-4 left-1/2">
-              <button className="rounded-full border-[1px] border-white bg-transparent shadow-xl py-1 px-1 -ml-[4px] opacity-70 text-white text-xs">
+              <button className="rounded-full border-[1px] border-white bg-transparent py-1 px-1 -ml-[4px] opacity-70 text-white text-xs">
                 up
               </button>
             </Link>
+
+            <div className="fixed bottom-4 h-auto right-36">
+              <Link
+                href="/impressum"
+                className="flex justify-center">
+                <button className="rounded-full bg-transparent py-1 px-1 -ml-[2px] opacity-70 text-white text-xs">
+                  Impressum
+                </button>
+              </Link>
+            </div>
+            <div className="fixed bottom-4 h-auto right-12">
+              <Link
+                href="/datenschutz"
+                className="flex justify-center">
+                <button className="rounded-full bg-transparent py-1 px-1 -ml-[2px] opacity-70 text-white text-xs">
+                  Datenschutz
+                </button>
+              </Link>
+            </div>
           </div>
 
           <section className="pages">

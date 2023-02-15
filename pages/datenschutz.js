@@ -6,23 +6,17 @@ import Link from "next/link";
 function datenschutz() {
   return (
     <div className="">
-      <div className="bg-cover">
-        <Image
-          src={background}
-          alt="background"
-          layout="fill"
-        />
-      </div>
       <div className="absolute">
         <div>
           <div className="mx-4 mt-4 bg-orange-200 p-4 rounded-md shadow-lg ">
             <p className="text-lg font-bold underline underline-offset-4">
-              Datenschutz
+              Datenschutzerklärung (Informationspflichten
+              gemäß Art. 13 DSGVO)
             </p>
+
             <br />
             <p className="text-gray-600 font-bold">
-              Herausgeber und Betreiber des
-              Internetangebots:
+              Name und Adresse des Verantwortlichen
             </p>
             <address className="mt-2 mx-2">
               <p>Johannes Langosch</p>
@@ -33,7 +27,8 @@ function datenschutz() {
             </address>
             <br />
             <p className="text-gray-600 font-bold">
-              Kontaktdaten:
+              Kontaktdaten (Datenschutzbeauftragter nicht
+              notwendig)
             </p>
             <address className="m-2">
               Email:{"  "}
@@ -45,21 +40,73 @@ function datenschutz() {
             </address>
             <br />
             <p className="text-gray-600 font-bold">
-              Haftung für Inhalte:
+              {" "}
+              Allgemeine Hinweise zur Datenschutzerklärung
             </p>
+            <div className="mt-2 mx-4">
+              <div>
+                <p>
+                  Verarbeitung wegen berechtigter Interessen
+                  dieses Interesse
+                </p>
+                <p className="mt-2 mx-4">xxx</p>
+              </div>
+              <div>
+                <p>Empfänger der Daten</p>
+                <p className="mt-2 mx-4">xxx</p>
+              </div>
+              <div>
+                <p>Übermittlung in ein Drittland</p>
+                <p className="mt-2 mx-4"></p>
+              </div>
 
-            <p className="m-2">
-              Im Sinne von § 7 Absatz 1 TMG bin ich für die
-              eigenen Inhalte auf dieser Webseite
-              verantwortlich. Durch §§ 8 bis einschließlich
-              10 TMG bin ich aber nicht verpflichtet,
-              gespeicherte oder übermittelte fremde Inhalte
-              zu überwachen oder diese auf Rechtswidrigkeit
-              zu prüfen. Das befreit mich jedoch nicht von
-              der Pflicht, der Sperrung und Entfernung von
-              Informationen nach geltenden Gesetzen
-              nachzukommen.
-            </p>
+              <div>
+                <p>Dauer der Datenspeicherung</p>
+                <p className="mt-2 mx-4"></p>
+              </div>
+
+              <div>
+                <p>Hinweis auf Auskunftsrecht</p>
+                <p className="mt-2 mx-4"></p>
+              </div>
+
+              <div>
+                <p>
+                  Hinweis auf Recht auf Speicherung,
+                  Löschung, Widerspruch und Übertragung von
+                  Daten
+                </p>
+                <p className="mt-2 mx-4"></p>
+              </div>
+
+              <div>
+                <p>
+                  Hinweis auf das Beschwerderecht bei einer
+                  Aufsichtsbehörde
+                </p>
+                <p className="mt-2 mx-4"></p>
+              </div>
+
+              <div>
+                <p>Allgemeiner Hinweis zu Cookies</p>
+                <p className="mt-2 mx-4"></p>
+              </div>
+
+              <div>
+                <p>Eingesetzte Analysesoftware</p>
+                <p className="mt-2 mx-4"></p>
+              </div>
+
+              <div>
+                <p>
+                  Hinweis zum Retargeting, Social Plugins &
+                  Co.
+                </p>
+                <p className="mt-2 mx-4"></p>
+              </div>
+            </div>
+
+            <p className="m-2"></p>
           </div>
           <div className="flex justify-center items-center mt-12">
             <Link href="/">
