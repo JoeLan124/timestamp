@@ -1,8 +1,6 @@
 import prisma from "lib/prisma";
 
 export default async function handler(req, res) {
-  let allDates = [];
-
   const getDateArray = function (start, end) {
     const arr = new Array();
     const dt = new Date(start);
@@ -15,6 +13,8 @@ export default async function handler(req, res) {
 
   if (req.method !== "POST") return res.end();
   let count = 0;
+  let allDates = [];
+
   allDates = getDateArray(
     new Date(2023, 0, 1),
     new Date(2023, 1, 31)
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   while (count < allDates.length) {
     await prisma.days.create({
       data: {
-        singleday: addDates,
+        singleday: allDates[count],
       },
     });
     count++;

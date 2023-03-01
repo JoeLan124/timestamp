@@ -6,10 +6,10 @@ function crudDates() {
       task: "addDates",
       description: "add dates to database",
     },
-    {
-      task: "deleteDates",
-      description: "delete dates from database",
-    },
+    // {
+    //   task: "deleteDates",
+    //   description: "delete dates from database",
+    // },
   ];
 
   const Button = ({ task }) => (
